@@ -1,27 +1,43 @@
-import { createHomeStyles } from '@/assets/styles/home.styles';
-import useTheme from '@/hooks/useTheme';
-import { LinearGradient } from 'expo-linear-gradient';
-import { StatusBar, Text, TouchableOpacity } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { createSettingsStyles } from "@/assets/styles/stting.styles";
+import DangerZone from "@/components/DangerZone";
+import Preferences from "@/components/Preferences";
+import ProgressStats from "@/components/ProgressStats";
+import useTheme from "@/hooks/useTheme";
+import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 
-const settingScreen = () => {
+import { ScrollView, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-    const { toggleDarkMode, colors } = useTheme();
+const SettingsScreen = () => {
+  const { colors } = useTheme();
 
-    const homeStyles = createHomeStyles(colors);
+  const settingsStyles = createSettingsStyles(colors);
 
-    return (
-    <LinearGradient colors={colors.gradients.background} style = {homeStyles.container}
-    >
-      <StatusBar barStyle={colors.statusBarStyle}/>
-      <SafeAreaView style={homeStyles.container}>
-        <Text style={homeStyles.todoText}>Setting Tab</Text>
-        <TouchableOpacity onPress={toggleDarkMode}>
-          <Text style={homeStyles.todoText}>Change Theme !</Text>
-        </TouchableOpacity>
+  return (
+    <LinearGradient colors={colors.gradients.background} style={settingsStyles.container}>
+      <SafeAreaView style={settingsStyles.safeArea}>
+        {/* HEADER */}
+        <View style={settingsStyles.header}>
+          <View style={settingsStyles.titleContainer}>
+            <LinearGradient colors={colors.gradients.primary} style={settingsStyles.iconContainer}>
+              <Ionicons name="settings" size={28} color="#ffffff" />
+            </LinearGradient>
+            <Text style={settingsStyles.title}>Settings</Text>
+          </View>
+        </View>
+
+        <ScrollView
+          style={settingsStyles.scrollView}
+          contentContainerStyle={settingsStyles.content}
+          showsVerticalScrollIndicator={false}
+        >
+          <ProgressStats />
+          <Preferences />
+          <DangerZone />
+        </ScrollView>
       </SafeAreaView>
     </LinearGradient>
-    )
-}
-
-export default settingScreen;
+  );
+};
+export default SettingsScreen;
