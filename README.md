@@ -1,3 +1,10 @@
+This is my First React Native Practice Proejct and I follow this Youtube Lecture.
+https://www.youtube.com/watch?v=jdfNnNccDt0&t=8959s
+
+Codesistency Smurf All right is reserved
+
+---
+
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
