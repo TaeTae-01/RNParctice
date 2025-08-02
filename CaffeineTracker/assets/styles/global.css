@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 브라운 테마 CSS 변수 */
+:root {
+  --color-background: #FDF8F6;
+  --color-surface: #F2E8E5;
+  --color-text: #4A3221;
+  --color-text-secondary: #7C766B;
+  --color-border: #E8E6E2;
+  --color-primary: #A0715D;
+  --color-caffeine: #8B4513;
+  --progress-width: 0%;
+}
+
+/* 기본 스타일 */
+.container {
+  @apply mx-auto px-4;
+}
+
+/* 브라운 테마 버튼 스타일 */
+.btn-primary {
+  @apply bg-primary-500 text-white px-6 py-3 rounded-xl font-semibold;
+  @apply shadow-lg shadow-primary-500/25;
+  @apply active:scale-95 transition-all duration-150;
+  @apply hover:bg-primary-600;
+}
+
+.btn-secondary {
+  @apply bg-brown-100 text-brown-800 px-6 py-3 rounded-xl font-semibold;
+  @apply border border-brown-200 active:scale-95 transition-all duration-150;
+  @apply hover:bg-brown-200;
+}
+
+.btn-caffeine {
+  @apply bg-caffeine text-white px-6 py-3 rounded-xl font-semibold;
+  @apply shadow-lg shadow-caffeine/25 active:scale-95 transition-all duration-150;
+}
+
+/* 브라운 테마 카드 스타일 */
+.card {
+  @apply bg-brown-50 rounded-xl shadow-sm border border-brown-200;
+}
+
+.card-elevated {
+  @apply bg-white rounded-xl shadow-md border border-brown-100;
+}
+
+/* 브라운 테마 입력 필드 */
+.input {
+  @apply bg-brown-50 border border-brown-300 text-brown-800 px-4 py-3 rounded-xl;
+  @apply focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+  @apply placeholder:text-brown-400;
+}
+
+/* 브라운 테마 프로그래스 바 */
+.progress-bar {
+  @apply w-full bg-brown-200 rounded-full overflow-hidden;
+}
+
+.progress-fill {
+  @apply h-full bg-gradient-to-r from-caffeine to-primary-500;
+  @apply transition-all duration-500 ease-out;
+}
+
+.caffeine-progress {
+  @apply h-4 bg-brown-200 rounded-full overflow-hidden;
+}
+
+.caffeine-progress-fill {
+  @apply h-full bg-gradient-to-r from-caffeine-light via-caffeine to-caffeine-dark;
+  @apply transition-all duration-700 ease-out animate-progress;
+}
+
+/* 애니메이션 */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* 다크모드 전환 애니메이션 */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
