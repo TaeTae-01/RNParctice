@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm ls:*)",
+      "Bash(rm:*)",
+      "Bash(npm cache clean:*)",
+      "Bash(touch:*)",
+      "Bash(npm start:*)",
+      "Bash(npx expo:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm install:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": []
+  }
+}
